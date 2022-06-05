@@ -37,14 +37,6 @@ void bst::remove2()
 
 void bst::remove_2small(node* &current, node* parent)
 {
-  /*
-  if (root->left == current)
-    {
-      current = current->right;
-      parent = current->right;
-      delete current;
-    }
-  */
   if (current->left != NULL)
     {
       remove_2small(current->left, current);
@@ -66,34 +58,27 @@ void bst::remove_2small(node* &current, node* parent)
 	{
 	  parent->left = NULL;
 	  delete current;
+	  current = NULL;
 	}
     }
 }
 
-
-/*
-node* bst::findparent(node* current)
+void bst::removeRight()
 {
-  if ((current->left)->left) != NULL)
-  {
-    findparent(current->left);
-  }
+  remove_rightsub(root->right);
+}
+
+void bst::remove_rightsub(node* &current)
+{
+  if (current != NULL)
+    {
+      remove_rightsub(current->left);
+      remove_rightsub(current->right);
+      delete current;
+      current = NULL;
+    }
   else
     {
-      return current;
+      return;
     }
 }
-
-void bst::remove_small2(node* &root, node* current)
-{
-  if (current->left == NULL)
-    {
-      current->left = NULL;
-      delete current->left;
-    }
-  if (current->left == NULL && current->right != NULL)
-    {
-      if (
-    }
-}
-*/

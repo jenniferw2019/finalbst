@@ -23,6 +23,7 @@ class bst
 /* ************** PLACE YOUR PROTOTYPE HERE ***************** */
   int predecessor();
   void remove2();
+  void removeRight();
   
  
  	private:
@@ -32,6 +33,6 @@ class bst
   /* ********************** MY CODE ******************** */
   node* predecessor_tree(node* current);
   void remove_2small(node* &current, node* parent);
-  //node* findparent(node* current);
-  //void remove_small2(node* &root, node* current);
+  void remove_rightsub(node* &current);
+  
 };

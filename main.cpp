@@ -16,7 +16,9 @@ int main()
       }
     */
 
-    object.remove2();
+    //object.remove2();
+
+    object.removeRight();
     object.display();	//displays again after!
    
     return 0;
