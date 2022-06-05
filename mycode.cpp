@@ -1,6 +1,7 @@
-//practice code
+A//practice code
 #include "bst.h"
 
+//find predecessor
 int bst::predecessor()
 {
   if (root->left != NULL)
@@ -28,7 +29,7 @@ node* bst::predecessor_tree(node* current)
   
 }
 
-
+//remove the 2 smallest numbers
 void bst::remove2()
 {
   remove_2small(root, root);
@@ -63,9 +64,17 @@ void bst::remove_2small(node* &current, node* parent)
     }
 }
 
+//remove right subtree
 void bst::removeRight()
 {
-  remove_rightsub(root->right);
+  if (root->right != NULL)
+    {
+      remove_rightsub(root->right);
+    }
+  else
+    {
+      cout << "there is no right subtree" << endl;
+    }
 }
 
 void bst::remove_rightsub(node* &current)
@@ -80,5 +89,72 @@ void bst::remove_rightsub(node* &current)
   else
     {
       return;
+    }
+}
+
+void bst::add(int value)
+{
+  add_new(root, root, root, value);
+}
+
+void bst::add_new(node* &root, node* current, node* parent, int number)
+{
+  if (current == NULL)
+    {
+      node* newNode = new node();
+      newNode->data = number;
+      current = newNode;
+      if (number >= parent->data)
+	{
+	  parent->right = current;
+	}
+      else if (number < parent->data)
+	{
+	  parent->left = current;
+	}
+      current->left = NULL;
+      current->right = NULL;
+    }
+  else
+    {
+      parent = current;
+      if (number < current->data)
+	{
+	  current = current->left;
+	}
+      else if (number >= current->data)
+	{
+	  current = current->right;
+	}
+      add_new(root, current, parent, number);
+    }
+}
+
+void bst::copy()
+{
+  if (root->left != NULL)
+    {
+      node* newtree = NULL;
+      copy_left(root->left, newtree);
+      root = newtree;
+    }
+  else
+    {
+      cout << "there is no left subtree" << endl;
+    }
+}
+void bst::copy_left(node* current, node* &ncopy)
+{
+  if (current == NULL)
+    {
+      ncopy = NULL;
+    }
+  else
+    {
+      ncopy = new node();
+      ncopy->data = current->data;
+
+      copy_left(current->left, ncopy->left);
+      copy_left(current->right, ncopy->right);
     }
 }

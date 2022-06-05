@@ -24,6 +24,9 @@ class bst
   int predecessor();
   void remove2();
   void removeRight();
+  void add(int value);
+  void copy();
+  
   
  
  	private:
@@ -34,5 +37,7 @@ class bst
   node* predecessor_tree(node* current);
   void remove_2small(node* &current, node* parent);
   void remove_rightsub(node* &current);
+  void add_new(node* &root, node* current, node* parent, int number);
+  void copy_left(node* current, node* &ncopy);
   
 };

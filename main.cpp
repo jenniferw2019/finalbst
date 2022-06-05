@@ -3,6 +3,8 @@
 int main()
 {
     bst object;
+    int input;
+    
     object.build(); 	//builds a BST
     object.display();	//displays a BST
 
@@ -18,8 +20,19 @@ int main()
 
     //object.remove2();
 
-    object.removeRight();
-    object.display();	//displays again after!
+    //object.removeRight();
+
+    /*
+    cout << "Enter a number to add" << endl;
+    cin >> input;
+    cin.get();
+    object.add(input);
+    */
+
+    object.copy();
+    object.display();
+    
+    //object.display();	//displays again after!
    
     return 0;
 }
