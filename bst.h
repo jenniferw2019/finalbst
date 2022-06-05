@@ -21,7 +21,9 @@ class bst
         void display(); 	//supplied
 
 /* ************** PLACE YOUR PROTOTYPE HERE ***************** */
-  int predecessor(); 
+  int predecessor();
+  void remove2();
+  
  
  	private:
  		node * root;
@@ -29,4 +31,7 @@ class bst
 
   /* ********************** MY CODE ******************** */
   node* predecessor_tree(node* current);
+  void remove_2small(node* &current, node* parent);
+  //node* findparent(node* current);
+  //void remove_small2(node* &root, node* current);
 };
